@@ -3,9 +3,9 @@ import java.util.HashMap;
  
 class IngredientMapCreator
 {
-  void AddRecipe(ArrayList<String> Ingredients)
+  void AddRecipe(Recipe recipe)
   {
-    for (String stuff: Ingredients)
+    for (String stuff: recipe.allIngredients())
     {
       if (mIngredientMap.containsKey(stuff))
         mIngredientMap.put(stuff, mIngredientMap.get(stuff) + 1);

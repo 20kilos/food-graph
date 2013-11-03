@@ -12,22 +12,22 @@ void setup()
   size(500, 500);
   stroke(255);
   background(192, 64, 0);
-  ArrayList<String> FryRice = new ArrayList<String>();
-  FryRice.add("soy sauce");
-  FryRice.add("rice");
-  FryRice.add("spring onion");
-  FryRice.add("eggs");
-  FryRice.add("chili");
-  FryRice.add("minced meat");
-  FryRice.add("bean sprout");
+  Recipe FryRice = new Recipe();
+  FryRice.addIngredient("soy sauce");
+  FryRice.addIngredient("rice");
+  FryRice.addIngredient("spring onion");
+  FryRice.addIngredient("eggs");
+  FryRice.addIngredient("chili");
+  FryRice.addIngredient("minced meat");
+  FryRice.addIngredient("bean sprout");
 
-  ArrayList<String> Pho = new ArrayList<String>();
-  Pho.add("rice noodles");
-  Pho.add("soy sauce");
-  Pho.add("beef");
-  Pho.add("spring onion");
-  Pho.add("chili");
-  Pho.add("bean sprout");
+  Recipe Pho = new Recipe();
+  Pho.addIngredient("rice noodles");
+  Pho.addIngredient("soy sauce");
+  Pho.addIngredient("beef");
+  Pho.addIngredient("spring onion");
+  Pho.addIngredient("chili");
+  Pho.addIngredient("bean sprout");
 
   c = new LinkCreator();
   c.AddRecipe(FryRice);

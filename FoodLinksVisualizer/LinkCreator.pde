@@ -2,9 +2,9 @@ import java.util.ArrayList;
  
 class LinkCreator
 {  
-  void AddRecipe(ArrayList<String> Ingredients)
+  void AddRecipe(Recipe recipe)
   {
-    ArrayList<Pair> AllPairs = GeneratePairs(Ingredients);
+    ArrayList<Pair> AllPairs = GeneratePairs(recipe.allIngredients());
  
     for (Pair newP : AllPairs)
     {

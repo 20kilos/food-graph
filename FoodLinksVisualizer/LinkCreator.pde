@@ -4,58 +4,62 @@ class LinkCreator
 {  
   void AddRecipe(Recipe recipe)
   {
-    ArrayList<Pair> AllPairs = GeneratePairs(recipe.allIngredients());
+    ArrayList<Link> allLinks = GenerateLinks(recipe);
  
-    for (Pair newP : AllPairs)
+    for (Link newLink : allLinks)
     {
       boolean found = false;
-      for (Pair existingPair : mMainPairs)
+      for (Link existingLink : mExistingLinks)
       {
-        if (existingPair.Match(newP))
+        if (existingLink.Match(newLink))
         {
-          existingPair.Increment();
+          existingLink.IncrementCount();
           found = true;
           break;
         }
       }
  
       if (!found)
-        mMainPairs.add(newP);
+        mExistingLinks.add(newLink);
     }
   }
  
   void Show()
   {
     println("showing");
-    for (Pair p : mMainPairs)
+    for (Link l : mExistingLinks)
     {
-      String out = p.First() + "+++" + p.Second() + ":" + p.Count();
+      String out = l.First() + "+++" + l.Second() + ":" + l.Count();
       println(out);
     }
   }
  
-  ArrayList<Pair> AllPairs()
+  ArrayList<Link> AllLinks()
   {
-    return mMainPairs;
+    return mExistingLinks;
   }
  
-  private ArrayList<Pair> mMainPairs = new ArrayList<Pair>();
+  private ArrayList<Link> mExistingLinks = new ArrayList<Link>();
 }
- 
-ArrayList<Pair> GeneratePairs(ArrayList<String> Ingredients)
+
+// Create links among all ingredients with a given recipe
+ArrayList<Link> GenerateLinks(Recipe recipe)
 {
-  ArrayList<Pair> uniquePairs = new ArrayList<Pair>();
+  ArrayList<Link> uniqueLinks = new ArrayList<Link>();
  
-  for (int i = 0; i < Ingredients.size(); i++)
+  ArrayList<String> Ingredients = recipe.allIngredients();
+  int size = Ingredients.size();
+  
+  for (int i = 0; i < size; i++)
   {
     int j = i + 1;
  
-    while (j < Ingredients.size ())
+    while (j < size)
     {
-      uniquePairs.add(new Pair(Ingredients.get(i), Ingredients.get(j)));
+      uniqueLinks.add(new Link(Ingredients.get(i), Ingredients.get(j)));
       j++;
     }
   }
  
-  return uniquePairs;
+  return uniqueLinks;
 }

@@ -51,12 +51,12 @@ void setup()
   }
 } 
 
-void CreateConnections(HashMap<String, Bubble> Bubbles, ArrayList<Pair> AllPairs)
+void CreateConnections(HashMap<String, Bubble> Bubbles, ArrayList<Link> AllLinks)
 {
-  for (Pair p: AllPairs)
+  for (Link l: AllLinks)
   {
-    Bubble b1 = Bubbles.get(p.First());
-    Bubble b2 = Bubbles.get(p.Second());
+    Bubble b1 = Bubbles.get(l.First());
+    Bubble b2 = Bubbles.get(l.Second());
 
     line(b1.x, b1.y, b2.x, b2.y);
   }
@@ -71,6 +71,6 @@ void draw() {
     b.drift();
   }
 
-  CreateConnections(bubbles, c.AllPairs());
+  CreateConnections(bubbles, c.AllLinks());
 }
 

@@ -1,6 +1,9 @@
-class Pair
+// Create a link between two ingredients: When two ingredients are used in one recipe, this link will be created.
+// The counter counts the number of occurrences this combination appears in different recipes
+
+class Link
 {
-  Pair(String First, String Second) 
+  Link(String First, String Second) 
   {
     mFirst = First; 
     mSecond = Second;
@@ -22,12 +25,12 @@ class Pair
     return mFirst == Name || mSecond == Name;
   }
 
-  boolean Match(Pair another)
+  boolean Match(Link another)
   {
     return Contains(another.First()) && Contains(another.Second());
   }
 
-  void Increment()
+  void IncrementCount()
   {
     mCounter++;
   }

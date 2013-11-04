@@ -15,7 +15,7 @@ class LinkCreator
       {
         if (existingLink.Match(newLink))
         {
-          existingLink.IncrementCount();
+          existingLink.incrementOccurences();
           found = true;
           break;
         }
@@ -31,7 +31,7 @@ class LinkCreator
     println("showing");
     for (Link l : mExistingLinks)
     {
-      String out = l.First() + "+++" + l.Second() + ":" + l.Count();
+      String out = l.first() + "+++" + l.second() + ":" + l.getOccurences();
       println(out);
     }
   }
@@ -47,8 +47,8 @@ ArrayList<Link> generateLinks(Recipe recipe)
 {
   ArrayList<Link> uniqueLinks = new ArrayList<Link>();
  
-  ArrayList<String> Ingredients = recipe.allIngredients();
-  int size = Ingredients.size();
+  ArrayList<String> ingredients = recipe.allIngredients();
+  int size = ingredients.size();
   
   for (int i = 0; i < size; i++)
   {
@@ -56,7 +56,7 @@ ArrayList<Link> generateLinks(Recipe recipe)
  
     while (j < size)
     {
-      uniqueLinks.add(new Link(Ingredients.get(i), Ingredients.get(j)));
+      uniqueLinks.add(new Link(ingredients.get(i), ingredients.get(j)));
       j++;
     }
   }

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 HashMap<String, Bubble> bubbles = new HashMap<String, Bubble>(); 
-LinkCreator c;
+LinkCreator linkCreator;
 
 void setup() 
 {
@@ -28,33 +28,32 @@ void setup()
   pho.addIngredient("chili");
   pho.addIngredient("bean sprout");
 
-  c = new LinkCreator();
-  c.addRecipe(fryRice);
-  c.addRecipe(pho);
+  linkCreator = new LinkCreator();
+  linkCreator.addRecipe(fryRice);
+  linkCreator.addRecipe(pho);
   //c.show();
 
-  IngredientMapCreator r = new IngredientMapCreator();
-  r.addRecipe(fryRice);
-  r.addRecipe(pho);
-  r.show();
+  IngredientMapCreator mapCreator = new IngredientMapCreator();
+  mapCreator.addRecipe(fryRice);
+  mapCreator.addRecipe(pho);
+  mapCreator.show();
 
-  Map<String, Integer> allIngredients = r.allIngredients();
+  Map<String, Integer> allIngredients = mapCreator.allIngredients();
 
   for (Entry<String, Integer> entry : allIngredients.entrySet()) {
     // The values in the array are passed into the Bubble class constructor.
-
     String name = entry.getKey();
     Integer count = entry.getValue();
     bubbles.put(name, new Bubble(random(140), random(140), count * 20, name));
   }
 } 
 
-void createConnections(HashMap<String, Bubble> bubbles, ArrayList<Link> allLinks)
+void drawLinks(HashMap<String, Bubble> bubbles, ArrayList<Link> allLinks)
 {
   for (Link l: allLinks)
   {
-    Bubble b1 = bubbles.get(l.First());
-    Bubble b2 = bubbles.get(l.Second());
+    Bubble b1 = bubbles.get(l.first());
+    Bubble b2 = bubbles.get(l.second());
 
     line(b1.x, b1.y, b2.x, b2.y);
   }
@@ -69,5 +68,5 @@ void draw() {
     b.drift();
   }
 
-  createConnections(bubbles, c.allLinks());
+  drawLinks(bubbles, linkCreator.allLinks());
 }

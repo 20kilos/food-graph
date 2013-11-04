@@ -3,45 +3,44 @@
 
 class Link
 {
-
   private String mFirst;
   private String mSecond;
-  int mCounter;
+  int occurences;
 
-  Link(String First, String Second) 
+  Link(String first, String second) 
   {
-    mFirst = First; 
-    mSecond = Second;
-    mCounter = 1;
+    mFirst = first; 
+    mSecond = second;
+    occurences = 1;
   }
 
-  String First()
+  String first()
   {
     return mFirst;
   }
 
-  String Second()
+  String second()
   {
     return mSecond;
   }
 
-  boolean Contains(String Name)
+  boolean contains(String Name)
   {
     return mFirst == Name || mSecond == Name;
   }
 
   boolean Match(Link another)
   {
-    return Contains(another.First()) && Contains(another.Second());
+    return contains(another.first()) && contains(another.second());
   }
 
-  void IncrementCount()
+  void incrementOccurences()
   {
-    mCounter++;
+    occurences++;
   }
 
-  int Count()
+  int getOccurences()
   {
-    return mCounter;
+    return occurences;
   }
 }

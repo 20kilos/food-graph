@@ -7,7 +7,7 @@ class IngredientMapCreator
 
   void addRecipe(Recipe recipe)
   {
-    for (String stuff: recipe.allIngredients())
+    for (String stuff: recipe.ingredients())
     {
       if (mIngredientMap.containsKey(stuff))
         mIngredientMap.put(stuff, mIngredientMap.get(stuff) + 1);
@@ -30,3 +30,4 @@ class IngredientMapCreator
     return mIngredientMap;
   }
  }
+ 

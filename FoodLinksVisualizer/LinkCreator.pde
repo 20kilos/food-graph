@@ -1,10 +1,12 @@
 import java.util.ArrayList;
  
 class LinkCreator
-{  
-  void AddRecipe(Recipe recipe)
+{ 
+  private ArrayList<Link> mExistingLinks = new ArrayList<Link>();
+
+  void addRecipe(Recipe recipe)
   {
-    ArrayList<Link> allLinks = GenerateLinks(recipe);
+    ArrayList<Link> allLinks = generateLinks(recipe);
  
     for (Link newLink : allLinks)
     {
@@ -24,7 +26,7 @@ class LinkCreator
     }
   }
  
-  void Show()
+  void show()
   {
     println("showing");
     for (Link l : mExistingLinks)
@@ -34,16 +36,14 @@ class LinkCreator
     }
   }
  
-  ArrayList<Link> AllLinks()
+  ArrayList<Link> allLinks()
   {
     return mExistingLinks;
   }
- 
-  private ArrayList<Link> mExistingLinks = new ArrayList<Link>();
 }
 
 // Create links among all ingredients with a given recipe
-ArrayList<Link> GenerateLinks(Recipe recipe)
+ArrayList<Link> generateLinks(Recipe recipe)
 {
   ArrayList<Link> uniqueLinks = new ArrayList<Link>();
  

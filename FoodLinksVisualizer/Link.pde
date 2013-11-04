@@ -3,6 +3,11 @@
 
 class Link
 {
+
+  private String mFirst;
+  private String mSecond;
+  int mCounter;
+
   Link(String First, String Second) 
   {
     mFirst = First; 
@@ -39,8 +44,4 @@ class Link
   {
     return mCounter;
   }
-
-  private String mFirst;
-  private String mSecond;
-  int mCounter;
-};
+}

@@ -3,7 +3,9 @@ import java.util.HashMap;
  
 class IngredientMapCreator
 {
-  void AddRecipe(Recipe recipe)
+  HashMap<String, Integer> mIngredientMap = new HashMap<String, Integer>();
+
+  void addRecipe(Recipe recipe)
   {
     for (String stuff: recipe.allIngredients())
     {
@@ -14,7 +16,7 @@ class IngredientMapCreator
     }
   }
  
-  void Show()
+  void show()
   {
     for (Entry entry : mIngredientMap.entrySet())
     {
@@ -23,10 +25,8 @@ class IngredientMapCreator
     }
   }
  
-  HashMap<String, Integer> AllIngredients()
+  HashMap<String, Integer> allIngredients()
   {
     return mIngredientMap;
   }
- 
-  HashMap<String, Integer> mIngredientMap = new HashMap<String, Integer>();
-}
+ }

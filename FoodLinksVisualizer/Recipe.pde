@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 class Recipe
 {
+  private ArrayList<String> mIngredients = new ArrayList<String>();
+  
   void addIngredient(String Ingredient)
   {
     mIngredients.add(Ingredient);
@@ -11,6 +13,4 @@ class Recipe
   {
     return mIngredients;
   }
-
-  private ArrayList<String> mIngredients = new ArrayList<String>();
 }

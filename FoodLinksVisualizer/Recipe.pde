@@ -4,12 +4,12 @@ class Recipe
 {
   private ArrayList<String> mIngredients = new ArrayList<String>();
   
-  void addIngredient(String Ingredient)
+  void addIngredient(String ingredient)
   {
-    mIngredients.add(Ingredient);
+    mIngredients.add(ingredient);
   }
   
-  ArrayList<String> allIngredients()
+  ArrayList<String> ingredients()
   {
     return mIngredients;
   }

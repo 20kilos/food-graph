@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 class Recipe
 {
-  private ArrayList<String> mIngredients = new ArrayList<String>();
+  private ArrayList<Ingredient> mIngredients = new ArrayList<Ingredient>();
   
-  void addIngredient(String ingredient)
+  void addIngredient(Ingredient ingredient)
   {
     mIngredients.add(ingredient);
   }
   
-  ArrayList<String> ingredients()
+  ArrayList<Ingredient> ingredients()
   {
     return mIngredients;
   }

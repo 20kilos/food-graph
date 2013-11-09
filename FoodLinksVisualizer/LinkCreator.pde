@@ -47,7 +47,7 @@ ArrayList<Link> generateLinks(Recipe recipe)
 {
   ArrayList<Link> uniqueLinks = new ArrayList<Link>();
  
-  ArrayList<String> ingredients = recipe.allIngredients();
+  ArrayList<Ingredient> ingredients = recipe.ingredients();
   int size = ingredients.size();
   
   for (int i = 0; i < size; i++)

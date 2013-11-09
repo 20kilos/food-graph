@@ -3,11 +3,11 @@ import java.util.HashMap;
  
 class IngredientMapCreator
 {
-  HashMap<String, Integer> mIngredientMap = new HashMap<String, Integer>();
+  HashMap<Ingredient, Integer> mIngredientMap = new HashMap<Ingredient, Integer>();
 
   void addRecipe(Recipe recipe)
   {
-    for (String stuff: recipe.ingredients())
+    for (Ingredient stuff: recipe.ingredients())
     {
       if (mIngredientMap.containsKey(stuff))
         mIngredientMap.put(stuff, mIngredientMap.get(stuff) + 1);
@@ -20,12 +20,12 @@ class IngredientMapCreator
   {
     for (Entry entry : mIngredientMap.entrySet())
     {
-      String out = entry.getKey() + " has " + entry.getValue() + " occurrences";
+      String out = ((Ingredient)entry.getKey()).name() + " has " + entry.getValue() + " occurrences";
       println(out);
     }
   }
  
-  HashMap<String, Integer> allIngredients()
+  HashMap<Ingredient, Integer> allIngredients()
   {
     return mIngredientMap;
   }

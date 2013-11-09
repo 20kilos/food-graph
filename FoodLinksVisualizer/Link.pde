@@ -3,30 +3,30 @@
 
 class Link
 {
-  private String mFirst;
-  private String mSecond;
+  private Ingredient mIngredient1;
+  private Ingredient mIngredient2;
   int occurences;
 
-  Link(String first, String second) 
+  Link(Ingredient Ingredient1, Ingredient Ingredient2)
   {
-    mFirst = first; 
-    mSecond = second;
+    mIngredient1 = Ingredient1;
+    mIngredient2 = Ingredient2;
     occurences = 1;
   }
 
-  String first()
+  Ingredient first()
   {
-    return mFirst;
+    return mIngredient1;
   }
 
-  String second()
+  Ingredient second()
   {
-    return mSecond;
+    return mIngredient2;
   }
 
-  boolean contains(String Name)
+  boolean contains(Ingredient another)
   {
-    return mFirst == Name || mSecond == Name;
+    return mIngredient1.equals(another) || mIngredient2.equals(another);
   }
 
   boolean Match(Link another)

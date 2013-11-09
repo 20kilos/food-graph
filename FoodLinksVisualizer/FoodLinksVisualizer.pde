@@ -11,22 +11,25 @@ void setup()
   size(500, 500);
   stroke(255);
   background(192, 64, 0);
+  
+  Ingredients allIngredients = new Ingredients();
   Recipe fryRice = new Recipe();
-  fryRice.addIngredient(new Ingredient(0, "soy sauce"));
-  fryRice.addIngredient(new Ingredient(1, "rice"));
-  fryRice.addIngredient(new Ingredient(3, "spring onion"));
-  fryRice.addIngredient(new Ingredient(4, "eggs"));
-  fryRice.addIngredient(new Ingredient(5, "chili"));
-  fryRice.addIngredient(new Ingredient(6, "minced meat"));
-  fryRice.addIngredient(new Ingredient(7, "bean sprout"));
+  
+  fryRice.addIngredient(allIngredients.Ingredient("soy sauce"));
+  fryRice.addIngredient(allIngredients.Ingredient("rice"));
+  fryRice.addIngredient(allIngredients.Ingredient("spring onion"));
+  fryRice.addIngredient(allIngredients.Ingredient("eggs"));
+  fryRice.addIngredient(allIngredients.Ingredient("chili"));
+  fryRice.addIngredient(allIngredients.Ingredient("minced meat"));
+  fryRice.addIngredient(allIngredients.Ingredient("bean sprout"));
 
   Recipe pho = new Recipe();
-  pho.addIngredient(new Ingredient(9, "rice noodles"));
-  pho.addIngredient(new Ingredient(0, "soy sauce"));
-  pho.addIngredient(new Ingredient(8, "beef"));
-  pho.addIngredient(new Ingredient(3, "spring onion"));
-  pho.addIngredient(new Ingredient(5, "chili"));
-  pho.addIngredient(new Ingredient(7, "bean sprout"));
+  pho.addIngredient(allIngredients.Ingredient("rice noodles"));
+  pho.addIngredient(allIngredients.Ingredient("soy sauce"));
+  pho.addIngredient(allIngredients.Ingredient("beef"));
+  pho.addIngredient(allIngredients.Ingredient("spring onion"));
+  pho.addIngredient(allIngredients.Ingredient("chili"));
+  pho.addIngredient(allIngredients.Ingredient("bean sprout"));
 
   linkCreator = new LinkCreator();
   linkCreator.addRecipe(fryRice);

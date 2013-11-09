@@ -43,6 +43,8 @@ void setup()
 
   HashMap<Integer, Integer> occurrances = occurrancesCounter.occurrances();
 
+  //XMLGen gen = new XMLGen();
+
   for (Entry<String, Integer> entry : allIngredients.all().entrySet()) {
 
     // The values in the array are passed into the Bubble class constructor.
@@ -51,7 +53,15 @@ void setup()
     int count = occurrances.get(ingredientId);
 
     bubbles.put(name, new Bubble(random(140), random(140), count * 20, name));
+
+    // Add XML data
+    //gen.addIngredient(ingredientId, name, count);
   }
+
+  //for (Link l : linkCreator.allLinks())
+    ////gen.addLink(l);
+
+  //gen.show();
 } 
 
 void drawLinks(HashMap<String, Bubble> bubbles, ArrayList<Link> allLinks)

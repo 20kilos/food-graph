@@ -36,17 +36,20 @@ void setup()
   linkCreator.addRecipe(pho);
   //c.show();
 
-  IngredientMapCreator mapCreator = new IngredientMapCreator();
-  mapCreator.addRecipe(fryRice);
-  mapCreator.addRecipe(pho);
-  mapCreator.show();
+  IngredientOccurranceCounter occurrancesCounter = new IngredientOccurranceCounter();
+  occurrancesCounter.addRecipe(fryRice);
+  occurrancesCounter.addRecipe(pho);
+  occurrancesCounter.show();
 
-  Map<Ingredient, Integer> allIngredients = mapCreator.allIngredients();
+  HashMap<Integer, Integer> occurrances = occurrancesCounter.occurrances();
 
-  for (Entry<Ingredient, Integer> entry : allIngredients.entrySet()) {
+  for (Entry<String, Integer> entry : allIngredients.all().entrySet()) {
+
     // The values in the array are passed into the Bubble class constructor.
-    String name = entry.getKey().name();
-    Integer count = entry.getValue();
+    String name = entry.getKey();
+    int ingredientId = entry.getValue();
+    int count = occurrances.get(ingredientId);
+
     bubbles.put(name, new Bubble(random(140), random(140), count * 20, name));
   }
 } 

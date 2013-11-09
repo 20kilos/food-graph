@@ -1,33 +1,33 @@
 import java.util.ArrayList;
 import java.util.HashMap;
  
-class IngredientMapCreator
+class IngredientOccurranceCounter
 {
-  HashMap<Ingredient, Integer> mIngredientMap = new HashMap<Ingredient, Integer>();
+  HashMap<Integer, Integer> mIngredientCounter = new HashMap<Integer, Integer>();
 
   void addRecipe(Recipe recipe)
   {
     for (Ingredient stuff: recipe.ingredients())
     {
-      if (mIngredientMap.containsKey(stuff))
-        mIngredientMap.put(stuff, mIngredientMap.get(stuff) + 1);
+      if (mIngredientCounter.containsKey(stuff.id()))
+        mIngredientCounter.put(stuff.id(), mIngredientCounter.get(stuff.id()) + 1);
       else
-        mIngredientMap.put(stuff, 1);
+        mIngredientCounter.put(stuff.id(), 1);
     }
   }
  
   void show()
   {
-    for (Entry entry : mIngredientMap.entrySet())
+    for (Entry entry : mIngredientCounter.entrySet())
     {
-      String out = ((Ingredient)entry.getKey()).name() + " has " + entry.getValue() + " occurrences";
+      String out = entry.getKey() + " has " + entry.getValue() + " occurrences";
       println(out);
     }
   }
  
-  HashMap<Ingredient, Integer> allIngredients()
+  HashMap<Integer, Integer> occurrances()
   {
-    return mIngredientMap;
+    return mIngredientCounter;
   }
  }
  

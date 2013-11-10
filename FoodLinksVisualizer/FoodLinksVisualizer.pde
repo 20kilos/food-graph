@@ -13,32 +13,23 @@ void setup()
   background(192, 64, 0);
   
   Ingredients allIngredients = new Ingredients();
-  Recipe fryRice = new Recipe();
-  
-  fryRice.addIngredient(allIngredients.Ingredient("soy sauce"));
-  fryRice.addIngredient(allIngredients.Ingredient("rice"));
-  fryRice.addIngredient(allIngredients.Ingredient("spring onion"));
-  fryRice.addIngredient(allIngredients.Ingredient("eggs"));
-  fryRice.addIngredient(allIngredients.Ingredient("chili"));
-  fryRice.addIngredient(allIngredients.Ingredient("minced meat"));
-  fryRice.addIngredient(allIngredients.Ingredient("bean sprout"));
-
-  Recipe pho = new Recipe();
-  pho.addIngredient(allIngredients.Ingredient("rice noodles"));
-  pho.addIngredient(allIngredients.Ingredient("soy sauce"));
-  pho.addIngredient(allIngredients.Ingredient("beef"));
-  pho.addIngredient(allIngredients.Ingredient("spring onion"));
-  pho.addIngredient(allIngredients.Ingredient("chili"));
-  pho.addIngredient(allIngredients.Ingredient("bean sprout"));
-
-  linkCreator = new LinkCreator();
-  linkCreator.addRecipe(fryRice);
-  linkCreator.addRecipe(pho);
-  //c.show();
-
   IngredientOccurranceCounter occurrancesCounter = new IngredientOccurranceCounter();
-  occurrancesCounter.addRecipe(fryRice);
-  occurrancesCounter.addRecipe(pho);
+  linkCreator = new LinkCreator();
+  
+  String[] recipes = loadStrings("recipes.csv");
+  
+  for(int i = 0; i < recipes.length; i++) 
+  {
+    Recipe recipe = new Recipe();
+    String[] ingredients = split(recipes[i], ',');
+    
+    for(int j = 0; j <ingredients.length; j++) 
+    {
+      recipe.addIngredient(allIngredients.Ingredient(ingredients[j]));
+    }
+    linkCreator.addRecipe(recipe);
+    occurrancesCounter.addRecipe(recipe);
+  }
   occurrancesCounter.show();
 
   HashMap<Integer, Integer> occurrances = occurrancesCounter.occurrances();
